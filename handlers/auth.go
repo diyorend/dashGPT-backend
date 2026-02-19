@@ -1,12 +1,13 @@
 package handlers
 
 import (
-	"ai-saas-dashboard/middleware"
-	"ai-saas-dashboard/models"
 	"database/sql"
 	"encoding/json"
 	"net/http"
 	"time"
+
+	"github.com/diyorend/dashGPT-backend/middleware"
+	"github.com/diyorend/dashGPT-backend/models"
 
 	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"

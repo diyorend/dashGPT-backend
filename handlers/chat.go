@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"ai-saas-dashboard/models"
 	"bytes"
 	"database/sql"
 	"encoding/json"
@@ -10,12 +9,14 @@ import (
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/diyorend/dashGPT-backend/models"
 )
 
 type ChatHandler struct {
-	db            *sql.DB
-	claudeAPIKey  string
-	claudeAPIURL  string
+	db           *sql.DB
+	claudeAPIKey string
+	claudeAPIURL string
 }
 
 func NewChatHandler(db *sql.DB, claudeAPIKey string) *ChatHandler {
@@ -52,17 +53,17 @@ type ClaudeResponse struct {
 		Type string `json:"type"`
 		Text string `json:"text"`
 	} `json:"content"`
-	Model        string `json:"model"`
-	StopReason   string `json:"stop_reason"`
-	Usage        struct {
+	Model      string `json:"model"`
+	StopReason string `json:"stop_reason"`
+	Usage      struct {
 		InputTokens  int `json:"input_tokens"`
 		OutputTokens int `json:"output_tokens"`
 	} `json:"usage"`
 }
 
 type StreamEvent struct {
-	Type         string `json:"type"`
-	Text         string `json:"text,omitempty"`
+	Type           string `json:"type"`
+	Text           string `json:"text,omitempty"`
 	ConversationID string `json:"conversationId,omitempty"`
 }
 
@@ -122,10 +123,10 @@ func (h *ChatHandler) SendMessage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	claudeReq := ClaudeRequest{
-		Model:     "claude-sonnet-4-20250514",
-		MaxTokens: 4096,
-		Messages:  claudeMessages,
-		Stream:    true,
+		Model:       "claude-sonnet-4-20250514",
+		MaxTokens:   4096,
+		Messages:    claudeMessages,
+		Stream:      true,
 		Temperature: 0.7,
 	}
 

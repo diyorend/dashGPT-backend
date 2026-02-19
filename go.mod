@@ -1,4 +1,4 @@
-module ai-saas-dashboard
+module github.com/diyorend/dashGPT-backend
 
 go 1.21
 

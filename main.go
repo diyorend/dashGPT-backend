@@ -8,9 +8,9 @@ import (
 	"os"
 	"time"
 
-	"ai-saas-dashboard/handlers"
-	"ai-saas-dashboard/middleware"
-	"ai-saas-dashboard/models"
+	"github.com/diyorend/dashGPT-backend/handlers"
+	"github.com/diyorend/dashGPT-backend/middleware"
+	"github.com/diyorend/dashGPT-backend/models"
 
 	"github.com/go-chi/chi/v5"
 	chimiddleware "github.com/go-chi/chi/v5/middleware"

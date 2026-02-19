@@ -1,12 +1,13 @@
 package handlers
 
 import (
-	"ai-saas-dashboard/models"
 	"database/sql"
 	"encoding/json"
 	"math/rand"
 	"net/http"
 	"time"
+
+	"github.com/diyorend/dashGPT-backend/models"
 )
 
 type DashboardHandler struct {
