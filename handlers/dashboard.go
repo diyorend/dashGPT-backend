@@ -24,7 +24,7 @@ func (h *DashboardHandler) GetMetrics(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// In a real application, you would fetch these from your database
+	// In a real application, we would fetch these from your database
 	// For demo purposes, we'll generate realistic mock data
 	metrics := models.DashboardMetrics{
 		TotalUsers:  1250 + rand.Intn(100),
@@ -76,7 +76,7 @@ func generateChartData(days int, minValue, maxValue float64) []models.ChartDataP
 
 	for i := 0; i < days; i++ {
 		date := now.AddDate(0, 0, -days+i+1)
-		
+
 		// Add some realistic variation
 		variation := (rand.Float64() - 0.5) * (maxValue - minValue) * 0.3
 		trend := float64(i) * (maxValue - minValue) / float64(days) * 0.5
